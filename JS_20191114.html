@@ -12,6 +12,11 @@ function loginSucceed(token) {
   window.webkit.messageHandlers.jsToOc.postMessage(action, token);
 }
 
+function showToast(){
+    if(jsToOc)
+        jsToOc.goHome();
+}
+  
 //! iOS调用JS入口
 function ocToJs(action, params) {
   document.getElementById("returnValue").innerHTML = action + '?' + params;
@@ -20,5 +25,5 @@ function ocToJs(action, params) {
 </script>
 
 <button onclick = "login()" style = "font-size: 18px;">回首頁</button>
-//! iOS调用JS数据显示框
+<input type='button' value='android' onclick='javascript:showToast();'>
 <div id = "returnValue" style = "font-size: 18px; border: 1px dotted; height: 50px;"> </div>
