@@ -8,7 +8,19 @@ function login() {
 
 //! 登录成功
 function loginSucceed(token) {
-  var action = "loginSucceed";
+  var action = "goHome";
+  window.webkit.messageHandlers.jsToOc.postMessage(action, token);
+}
+  
+//! 快速登入
+function Qlogin() {
+  var token = "js_tokenString";
+  QloginSucceed(token);
+}
+
+//! 快速登入成功
+function QloginSucceed(token) {
+  var action = "QL";
   window.webkit.messageHandlers.jsToOc.postMessage(action, token);
 }
 
@@ -25,5 +37,6 @@ function ocToJs(action, params) {
 </script>
 
 <button onclick = "login()" style = "font-size: 18px;">回首頁</button>
+<button onclick = "Qlogin()" style = "font-size: 18px;">快速登入</button>
 <input type='button' value='android' onclick='javascript:showToast();'>
 <div id = "returnValue" style = "font-size: 18px; border: 1px dotted; height: 50px;"> </div>
