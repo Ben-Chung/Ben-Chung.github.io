@@ -10,7 +10,7 @@ body {
   
 //! 登录
 function login() {
-  var token = "js_tokenString";
+  var token = "{\"custID\":\"\", \"userID\":\"\", \"custType\":\"\", \"pushID\":\"\", \"regChannel\":\"\", \"idgateID\":\"\", \"maskedPhone\":\"\"}";
   loginSucceed(token);
 }
 //! 登录成功
@@ -26,7 +26,7 @@ function Qlogin() {
 }
 //! 快速登入成功
 function QloginSucceed(token) {
-  var action = "QL";
+  var action = "goEPush";
   window.webkit.messageHandlers.jsToOc.postMessage(action, token);
 }
 function showToast(){
@@ -46,4 +46,3 @@ function ocToJs(action, params) {
 <button onclick = "Qlogin()" style = "font-size: 18px;">快速登入</button>
 <input type='button' value='android' onclick='javascript:showToast();'>
 <div id = "returnValue" style = "font-size: 18px; border: 1px dotted; height: 100px;"> </div>
-
