@@ -15,7 +15,7 @@ function login() {
 }
 //! 登录成功
 function loginSucceed(token) {
-  var action = "goHome";
+  var action = "goEPush";
   window.webkit.messageHandlers.jsToOc.postMessage(action, token);
 }
   
