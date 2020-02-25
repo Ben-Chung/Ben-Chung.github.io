@@ -15,7 +15,7 @@ function login() {
 }
 //! 登录成功
 function loginSucceed(token) {
-  var action = "goEPush";//"{"p1":"goEPush", "p2":{"custID":"", "userID":"", "custType":"", "pushID":"", "regChannel":"", "idgateID":"", "maskedPhone":""}}";
+  var action = "{\"p1\":\"goEPush\", \"p2\":{\"custID\":\"\", \"userID\":\"\", \"custType\":\"\", \"pushID\":\"\", \"regChannel\":\"\", \"idgateID\":\"\", \"maskedPhone\":\"\"}}";
   window.webkit.messageHandlers.jsToOc.postMessage(action, token);
 }
   
