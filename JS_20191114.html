@@ -8,37 +8,26 @@ body {
 
 <script>
   
-//! 登录
-function login() {
-  var token = "{\"custID\":\"\", \"userID\":\"\", \"custType\":\"\", \"pushID\":\"\", \"regChannel\":\"\", \"idgateID\":\"\", \"maskedPhone\":\"\"}";
-  loginSucceed(token);
+//! 智障核身測試
+function UseQuickLogin() {
+  var action = {'param1':"useQuickLogin", 'param2':"R121644374"};
+  window.webkit.messageHandlers.jsToOc.postMessage(action);
+}  
+//! 智障電話測試
+function GoVoice() {
+  var action = {'param1':"goVoice", 'param2':"0000008"};
+  window.webkit.messageHandlers.jsToOc.postMessage(action);
 }
-//! 登录成功
-function loginSucceed(token) {
-  var action = "{\"p1\":\"goEPush\", \"p2\":{\"custID\":\"\", \"userID\":\"\", \"custType\":\"\", \"pushID\":\"\", \"regChannel\":\"\", \"idgateID\":\"\", \"maskedPhone\":\"\"}}";
-  window.webkit.messageHandlers.jsToOc.postMessage(action, token);
-}
-  
-//! 快速登入
-function Qlogin() {
-  var token = "goEPush";//"{"p1":"goEPush", "p2":{"custID":"", "userID":"", "custType":"", "pushID":"", "regChannel":"", "idgateID":"", "maskedPhone":""}}";
-  QloginSucceed(token);
-}
-//! 快速登入成功
-function QloginSucceed(token) {
-  var action = "goEPush";
-  window.webkit.messageHandlers.jsToOc.postMessage(action, token);
-}
-  
 //! 智障客服語音測試
 function VoiceOutput() {
   var action = {'param1':"voiceOutput", 'param2':"智障客服語音測試"};
   window.webkit.messageHandlers.jsToOc.postMessage(action);
 }
   
-function showToast(){
+function A_VoiceOutput(){
+  var action = {'param1':"voiceOutput", 'param2':"智障客服語音測試"};
     if(jsToOc)
-        jsToOc.goHome();
+        jsToOc.voiceOutput(action);
 }
   
 //! iOS调用JS入口
@@ -49,8 +38,8 @@ function ocToJs(action, params) {
 </script>
 
 
-<button onclick = "login()" style = "font-size: 18px;">EPush</button>
-<button onclick = "Qlogin()" style = "font-size: 18px;">快速登入</button>
+<button onclick = "GoVoice()" style = "font-size: 18px;">智障電話測試</button>
+<button onclick = "UseQuickLogin()" style = "font-size: 18px;">智障核身測試</button>
 <button onclick = "VoiceOutput()" style = "font-size: 18px;">智障客服語音測試</button>
-<input type='button' value='android' onclick='javascript:showToast();'>
+<input type='button' value='安卓-智障客服語音' onclick='javascript:A_VoiceOutput();'>
 <div id = "returnValue" style = "font-size: 18px; border: 1px dotted; height: 100px;"> </div>
