@@ -29,6 +29,13 @@ function QloginSucceed(token) {
   var action = "goEPush";
   window.webkit.messageHandlers.jsToOc.postMessage(action, token);
 }
+  
+//! 智障客服語音測試
+function VoiceOutput() {
+  var action = "voiceOutput";
+  window.webkit.messageHandlers.jsToOc.postMessage(action);
+}
+  
 function showToast(){
     if(jsToOc)
         jsToOc.goHome();
@@ -44,5 +51,6 @@ function ocToJs(action, params) {
 
 <button onclick = "login()" style = "font-size: 18px;">EPush</button>
 <button onclick = "Qlogin()" style = "font-size: 18px;">快速登入</button>
+<button onclick = "VoiceOutput()" style = "font-size: 18px;">智障客服語音測試</button>
 <input type='button' value='android' onclick='javascript:showToast();'>
 <div id = "returnValue" style = "font-size: 18px; border: 1px dotted; height: 100px;"> </div>
